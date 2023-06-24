@@ -1,0 +1,10 @@
+{
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6379
+  },
+  "server": {
+    "port": 3000
+  },
+  "apiKey": "RGAPI-2e32ed23-2db2-4fcb-9808-18df352f23fb"
+}
