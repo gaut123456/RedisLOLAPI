@@ -12,6 +12,9 @@ async function getSummonerId(summonerName) {
     try {
         const response = await axios.get(`https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${config.apiKey}`);
         summonerID = response.data;
+        const cacheKey = `summoner:${summonerName}`;
+        await redis.set(cacheKey, JSON.stringify(response.data), "EX", 30 * 60);
+        console.log("Stored data in cache");
     } catch (error) {
         console.error(error);
     }
